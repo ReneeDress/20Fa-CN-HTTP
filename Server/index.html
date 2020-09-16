@@ -1,0 +1,102 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Yijun's Studio</title>
+		<script type="text/javascript" src="./Server/FileSaver.js" />
+		<style>
+			body {
+				background-image: linear-gradient(#2980B9, #6DD5FA, #FFFFFF);
+				background-size: 100% 100vh;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			.main {
+				display: inline-block;
+				width: 100%;
+				margin: 0 auto;
+				color: whitesmoke;
+				font-weight: 800;
+				animation: fade 1s;
+				-webkit-animation: fade 1s; /* Safari 与 Chrome */
+				text-align: center;
+				padding-top: 16%;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			.footer {
+				display: inline-block;
+				width: 100%;
+				margin: 0 auto;
+				color: whitesmoke;
+				text-align: center;
+				position: relative;
+				bottom: -250px;
+				color: #2980B988;
+			}
+			input {
+				margin: 0 auto;
+				line-height: 30px;
+				height: 30px;
+				width: 180px;
+				font-size: 14px;
+				font-family: zihun70hao-lingyueheiti;
+				color: #2980B9;
+				text-indent: 5px;
+				border: .5px solid whitesmoke;
+				border-radius: 3px;
+			}
+			.login {
+				margin: 0 auto;
+				height: 30px;
+				width: 60px;
+				font-size: 14px;
+				border: .5px solid whitesmoke;
+				border-radius: 3px;
+				color: #2980B9;
+				background-color: whitesmoke;
+				font-weight: 800;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			.usr, .pwd {
+				margin: 0 auto;
+			}
+			@keyframes fade
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+			@-webkit-keyframes fade /* Safari 与 Chrome */
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="main">
+			<h1>Computer Network Discussion on HTTP Protocol</h1>
+			<span> Username &ensp;</span><input id="usr" class="usr" type="text" placeholder="Your UserName" />
+			<span> Password &ensp;</span><input id="pwd" class="pwd" type="password" placeholder="Your Password" />
+			<br/>
+			<br/>
+			<button class="login" onclick="Login()">Login</button>
+		</div>
+		<div class="footer">
+			©️ Yiqi SUN Yijun LIN Ruyan WANG
+		</div>
+	</body>
+</html>
+
+<script type="text/javascript">
+	function Login() {
+		let username = document.getElementById('usr').value;
+		let password = document.getElementById('pwd').value;
+		let content = 'usr=' + username + '&pwd=' + password;
+		// console.log(content)
+		var filename = "login.txt";
+		var blob = new Blob([content], {
+			type: "text/plain;charset=utf-8"
+		});
+		saveAs(blob, filename);
+	}
+</script>

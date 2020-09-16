@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8"/>
+  <title>
+   Yijun's Studio
+  </title>
+  <script src="./Server/FileSaver.js" type="text/javascript">
+  </script>
+  <style>
+   body {
+				background: linear-gradient(#2980B9, #6DD5FA, #FFFFFF);
+				background-size: 100% 100vh;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			.main {
+				display: inline-block;
+				width: 100%;
+				margin: 0 auto;
+				color: whitesmoke;
+				font-weight: 800;
+				animation: fade 1s;
+				-webkit-animation: fade 1s; /* Safari 与 Chrome */
+				text-align: center;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			table {
+				display: inline-block;
+				margin: 0 auto;
+				color: whitesmoke;
+				font-weight: 800;
+				animation: fade 1s;
+				-webkit-animation: fade 1s; /* Safari 与 Chrome */
+				padding-top: 5%;
+				text-align: center;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			tr {
+				margin: 0 auto;
+				text-align: center;
+				width: 33.333333vw;
+				line-height: 30px;
+				border: .5px solid whitesmoke;
+			}
+			th {
+				margin: 0 auto;
+				text-align: center;
+				width: 30vw;
+				line-height: 30px;
+				border: .5px solid whitesmoke;
+			}
+			.footer {
+				display: inline-block;
+				width: 100%;
+				margin: 0 auto;
+				color: whitesmoke;
+				text-align: center;
+				position: relative;
+				bottom: -250px;
+			}
+			input {
+				margin: 0 auto;
+				line-height: 30px;
+				height: 30px;
+				width: 180px;
+				font-size: 14px;
+				font-family: zihun70hao-lingyueheiti;
+				color: #2980B9;
+				text-indent: 5px;
+				border: .5px solid whitesmoke;
+				border-radius: 3px;
+			}
+			.submit {
+				margin: 0 auto;
+				height: 30px;
+				width: 60px;
+				font-size: 14px;
+				border: .5px solid whitesmoke;
+				border-radius: 3px;
+				color: #2980B9;
+				background-color: whitesmoke;
+				font-weight: 800;
+				font-family: zihun70hao-lingyueheiti;
+			}
+			.itm, .prc {
+				margin: 0 auto;
+			}
+			@keyframes fade
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+
+			@-webkit-keyframes fade /* Safari 与 Chrome */
+			{
+				from {opacity: 0;}
+				to {opacity: 1;}
+			}
+  </style>
+ </head>
+ <body>
+  <div class="main">
+   <h2>
+    Computer Network Discussion on HTTP Protocol
+   </h2>
+   <span>
+    Item
+   </span>
+   <input class="itm" id="itm" placeholder="The item you bought" type="text"/>
+   <span>
+    Price
+   </span>
+   <input class="prc" id="prc" placeholder="The money you spent" type="number"/>
+   <button class="submit" onclick="Submit()">
+    Submit
+   </button>
+   <br/>
+   <table>
+    <tr>
+     <th>
+      DateTime
+     </th>
+     <th>
+      Item
+     </th>
+     <th>
+      Price
+     </th>
+    </tr>
+    <tr>
+     <th>
+      Sep 16 2020 00:34:12
+     </th>
+     <th>
+      Mulene Vitamin
+     </th>
+     <th>
+      5.00
+     </th>
+    </tr>
+    <tr>
+     <th>
+      Sep 16 2020 07:56:27
+     </th>
+     <th>
+      Bread
+     </th>
+     <th>
+      13.20
+     </th>
+    </tr>
+    <tr>
+     <th>
+      Sep 16 2020 09:40:50
+     </th>
+     <th>
+      Milk
+     </th>
+     <th>
+      5.50
+     </th>
+    </tr>
+    <tr>
+     <th>
+      Sep 16 2020 10:19:24
+     </th>
+     <th>
+      item
+     </th>
+     <th>
+      45.00
+     </th>
+    </tr>
+    <tr>
+     <th>
+      Sep 16 2020 19:39:58
+     </th>
+     <th>
+      Starbucks
+     </th>
+     <th>
+      47.60
+     </th>
+    </tr>
+   </table>
+  </div>
+  <div class="footer">
+   ©️ Yiqi SUN Yijun LIN Ruyan WANG
+  </div>
+ </body>
+</html>
+<script type="text/javascript">
+ function Submit() {
+		let item = document.getElementById('itm').value;
+		let price = document.getElementById('prc').value;
+		if (price == '' || item == '') {
+			alert('Unknown input. Check it.')
+		}
+		else {
+			let content = 'itm=' + item + '&prc=' + price;
+		// console.log(content)
+		var filename = "login.txt";
+		var blob = new Blob([content], {
+			type: "text/plain;charset=utf-8"
+		});
+		saveAs(blob, filename);
+		}
+	}
+</script>
